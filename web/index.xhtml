@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Insert User</title>
+    </h:head>
+    <h:body>
+        <center>
+            <h:form>
+                <h:column>
+                    <h:outputLabel>Username : </h:outputLabel>
+                    <h:inputText id="username" value="#{userManagedBean.username}" />
+                </h:column>
+                <br/><br/>
+                <h:column>
+                    <h:outputLabel>Password : </h:outputLabel>
+                    <h:inputText id="password" value="#{userManagedBean.password}" />
+                </h:column>
+                <br/><br/>
+                <h:column>
+                    <h:commandButton value="Add User" action="#{userManagedBean.insertUser()}"></h:commandButton>
+                </h:column>
+                <br/><br/>
+                <h:dataTable id="userdata" value="#{userManagedBean.allUsers()}" var="user" border="2">
+                     <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel>UserId</h:outputLabel>
+                        </f:facet>
+                         <h:outputText value="#{user.userid}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel>Username</h:outputLabel>
+                        </f:facet>
+                        <h:outputText value="#{user.username}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >
+                            <h:outputLabel>Password</h:outputLabel>
+                        </f:facet>
+                        <h:inputText value="#{user.password}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel>Action</h:outputLabel>
+                        </f:facet>
+                        <h:commandLink action="#{userManagedBean.removeUser(user.userid)}">Remove</h:commandLink>
+                        <h:commandLink action="#{userManagedBean.updateUser(user.userid, Username, Password)}">Update</h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </center>
+    </h:body>
+</html>
+
