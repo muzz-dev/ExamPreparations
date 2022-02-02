@@ -20,36 +20,9 @@
                 </h:column>
                 <br/><br/>
                 <h:column>
-                    <h:commandButton value="Add User" action="#{userManagedBean.insertUser()}"></h:commandButton>
+                    <h:commandButton value="Add User" action="#{userManagedBean.Login}"></h:commandButton>
                 </h:column>
                 <br/><br/>
-                <h:dataTable id="userdata" value="#{userManagedBean.allUsers()}" var="user" border="2">
-                     <h:column>
-                        <f:facet name="header">
-                            <h:outputLabel>UserId</h:outputLabel>
-                        </f:facet>
-                         <h:outputText value="#{user.userid}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputLabel>Username</h:outputLabel>
-                        </f:facet>
-                        <h:outputText value="#{user.username}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header" >
-                            <h:outputLabel>Password</h:outputLabel>
-                        </f:facet>
-                        <h:inputText value="#{user.password}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputLabel>Action</h:outputLabel>
-                        </f:facet>
-                        <h:commandLink action="#{userManagedBean.removeUser(user.userid)}">Remove</h:commandLink>
-                        <h:commandLink action="#{userManagedBean.updateUser(user.userid, Username, Password)}">Update</h:commandLink>
-                    </h:column>
-                </h:dataTable>
             </h:form>
         </center>
     </h:body>

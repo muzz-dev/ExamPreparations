@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TblUser.findAll", query = "SELECT t FROM TblUser t"),
+    @NamedQuery(name = "TblUser.findbyUsername", query = "SELECT t FROM TblUser t where t.username= :username"),
     @NamedQuery(name = "TblUser.findByUserid", query = "SELECT t FROM TblUser t WHERE t.userid = :userid")})
 public class TblUser implements Serializable {
 
